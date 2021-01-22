@@ -24,7 +24,10 @@ ${AWS_REGION}
 text
 EOF
 
-sh -c "${COMMAND} "
+sh -c "${COMMAND} \
+        --profile s3-action \
+        --no-progress \
+      $*"
 
 aws configure --profile s3-action <<-EOF > /dev/null 2>&1
 null
