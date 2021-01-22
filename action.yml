@@ -1,4 +1,4 @@
-name: "AWS S3 Sync Action"
+name: "Sync file to AWS S3"
 description: "Github action to sync to AWS s3 bucket."
 branding:
   color: 'yellow'
