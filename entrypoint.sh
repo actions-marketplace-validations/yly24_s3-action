@@ -29,7 +29,7 @@ ${AWS_REGION}
 text
 EOF
 
-sh -c "aws s3 sync ${SOURCE_DIR} s3://${AWS_S3_BUCKET} \
+sh -c "aws s3 sync ${SOURCE_DIR} s3://${AWS_S3_BUCKET} ${ARGS} \
               --profile s3-action \
               --no-progress \
               $*"
