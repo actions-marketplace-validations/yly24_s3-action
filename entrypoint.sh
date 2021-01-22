@@ -31,7 +31,7 @@ EOF
 
 echo "ARGS" ${ARGS}
 
-sh -c "aws s3 sync ${SOURCE_DIR} s3://${AWS_S3_BUCKET} ${ARGS} \
+sh -c "aws s3 ${COMAND} ${SOURCE_DIR} s3://${AWS_S3_BUCKET} ${ARGS} \
               --profile s3-action \
               --no-progress \
               $*"
