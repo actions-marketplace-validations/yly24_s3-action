@@ -24,7 +24,7 @@ ${AWS_REGION}
 text
 EOF
 
-sh -c "${COMMAND} \
+sh -c "aws s3 sync front/appdev/build/ s3://qinyin --exclude "*" --include "index.html" \
         --profile s3-action \
         --no-progress \
       $*"
