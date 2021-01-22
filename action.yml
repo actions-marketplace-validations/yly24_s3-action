@@ -24,6 +24,10 @@ inputs:
     description: "Local Directory to Sync/Upload to S3."
     required: false
     defualt: "."
+   COMMAND:
+    description: "s3 comand"
+    required: false
+    defualt: "sync"
   ARGS:
     description: "s3 comand arguments"
     required: false
@@ -38,3 +42,4 @@ runs:
     - ${{ inputs.AWS_REGION }}
     - ${{ inputs.SOURCE_DIR }}
     - ${{ inputs.ARGS }}
+    - ${{ inputs.COMMAND }}
