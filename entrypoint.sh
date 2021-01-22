@@ -31,7 +31,7 @@ EOF
 
 echo "ARGS" ${ARGS}
 
-sh -c "aws s3 ${COMAND} ${SOURCE_DIR} s3://${AWS_S3_BUCKET} ${ARGS} \
+sh -c "aws s3 cp ${SOURCE_DIR} s3://${AWS_S3_BUCKET}/ --recursive --exclude "*" --include "index.html" \
               --profile s3-action \
               --no-progress \
               $*"
