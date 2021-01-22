@@ -2,11 +2,6 @@
 
 set -e
 
-if [ -z "$AWS_S3_BUCKET" ]; then
-  echo "AWS_S3_BUCKET is not set. Quitting."
-  exit 1
-fi
-
 if [ -z "$AWS_ACCESS_KEY_ID" ]; then
   echo "AWS_ACCESS_KEY_ID is not set. Quitting."
   exit 1
@@ -29,12 +24,7 @@ ${AWS_REGION}
 text
 EOF
 
-echo "ARGS" ${ARGS}
-
-sh -c "aws s3 cp ${SOURCE_DIR} s3://${AWS_S3_BUCKET}/ --recursive --exclude "*" --include "index.html" \
-              --profile s3-action \
-              --no-progress \
-              $*"
+sh -c "${COMMAND} "
 
 aws configure --profile s3-action <<-EOF > /dev/null 2>&1
 null
