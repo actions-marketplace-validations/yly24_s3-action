@@ -12,25 +12,13 @@ inputs:
     description: "AWS Secret Access Key. [AWS Docs](https://docs.aws.amazon.com/general/latest/gr/managing-aws-access-keys.html)"
     required: true
     default: null
-  AWS_S3_BUCKET:
-    description: "The Name of the S3 Bucket."
-    required: true
-    default: null
   AWS_REGION:
     description: "Region of the S3 Bucket"
     required: true
     default: null
-  SOURCE_DIR:
-    description: "Local Directory to Sync/Upload to S3."
-    required: false
-    defualt: "."
   COMMAND:
     description: "s3 comand"
-    required: false
-    defualt: "sync"
-  ARGS:
-    description: "s3 comand arguments"
-    required: false
+    required: true
     defualt: ""
 runs:
   using: "docker"
@@ -38,8 +26,5 @@ runs:
   args:
     - ${{ inputs.AWS_ACCESS_KEY_ID }}
     - ${{ inputs.AWS_SECRET_ACCESS_KEY }}
-    - ${{ inputs.AWS_S3_BUCKET }}
     - ${{ inputs.AWS_REGION }}
-    - ${{ inputs.SOURCE_DIR }}
-    - ${{ inputs.ARGS }}
     - ${{ inputs.COMMAND }}
