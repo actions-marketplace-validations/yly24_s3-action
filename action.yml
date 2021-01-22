@@ -24,7 +24,7 @@ inputs:
     description: "Local Directory to Sync/Upload to S3."
     required: false
     defualt: "."
-   COMMAND:
+  COMMAND:
     description: "s3 comand"
     required: false
     defualt: "sync"
